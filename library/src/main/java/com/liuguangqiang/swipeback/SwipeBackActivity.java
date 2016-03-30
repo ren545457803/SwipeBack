@@ -1,6 +1,5 @@
 package com.liuguangqiang.swipeback;
 
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,11 +15,28 @@ public class SwipeBackActivity extends AppCompatActivity implements SwipeBackLay
     private SwipeBackLayout swipeBackLayout;
     private ImageView ivShadow;
 
+    private View rawViewParent;// 最原始布局View
+
     @Override
     public void setContentView(int layoutResID) {
         super.setContentView(getContainer());
-        View view = LayoutInflater.from(this).inflate(layoutResID, null);
-        swipeBackLayout.addView(view);
+        rawViewParent = LayoutInflater.from(this).inflate(layoutResID, null);
+        swipeBackLayout.addView(rawViewParent);
+    }
+
+    /**
+     * 设置原始布局的背景
+     * @param colorResId 背景颜色资源Id
+     */
+    protected void setBackgroundResource(int colorResId){
+        rawViewParent.setBackgroundResource(colorResId);
+    }
+
+    /**
+     * @param color 颜色值
+     */
+    protected void setBackgroundColor(int color){
+        rawViewParent.setBackgroundColor(color);
     }
 
     private View getContainer() {

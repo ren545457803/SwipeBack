@@ -19,6 +19,9 @@ public class CommonActivity extends SwipeBackActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitleTextColor(Color.WHITE);
         setSupportActionBar(toolbar);
+
+
+        setBackgroundResource(android.R.color.holo_green_light);
     }
 
 }
